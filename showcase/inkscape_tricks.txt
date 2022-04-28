@@ -1,0 +1,12 @@
+ 
+
+ Just show Part of Image:  Object > Clip > Set:
+ https://inkscapetutorials.org/2014/04/22/inkscape-faq-how-do-i-crop-in-inkscape/
+ 
+ 
+ Flow-text in frame
+ select both the text box and the frame (click and shift) and then go to text->flow into frame.
+ https://www.youtube.com/watch?v=AvKbFEMp6-A
+ 
+
+ 

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>io.wcm</groupId>
+    <artifactId>io.wcm.renderfarm.root</artifactId>
+    <version>1</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+  
+  <artifactId>io.wcm.renderfarm.cli</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  <properties>
+    <build.compiler.source>1.8</build.compiler.source>
+    <build.compiler.target>1.8</build.compiler.target>
+  </properties>
+  
+  <build>
+    <plugins>
+	
+      <!-- Maven Shade Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.2</version>
+        <executions>
+          <!-- Run shade goal on package phase -->
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <!-- add Main-Class to manifest file -->
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>io.wcm.renderfarm.misc.cli.Cli</mainClass>
+                </transformer>
+                
+              </transformers>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+  <dependencies>
+      
+    <!--
+    http://stackoverflow.com/questions/26139301/apache-fop-in-a-java-applet-no-imagepreloader-found-for-data
+    Manually add xmlgraphics-commons before fop to avoid 
+    Enclosed Exception:
+    The file format is not supported. No ImagePreloader found for data:image/jpeg;base64,/9j/4AAQ...P/9k="
+    on element <image> can't be opened because:
+    URL data in unsupported format or corrupt
+
+    toDo: file a bug to shade and/or fop-batik -->
+    
+    <!--dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>xmlgraphics-commons</artifactId>
+      <version>2.1</version>
+    </dependency-->
+
+    <dependency>
+      <groupId>io.wcm</groupId>
+      <artifactId>io.wcm.renderfarm.batikbundle</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>   
+      <groupId>io.wcm</groupId>
+      <artifactId>io.wcm.renderfarm.pdfrenderservice</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.6.2</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.24</version>
+    </dependency>
+    
+  
+  </dependencies>
+</project>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.wcm</groupId>
+    <artifactId>io.wcm.parent_toplevel</artifactId>
+    <version>1.2.0</version>
+    <relativePath/>
+  </parent>
+
+  <artifactId>io.wcm.renderfarm.root</artifactId>
+  <packaging>pom</packaging>
+  <version>1</version>
+
+  <modules>
+    <module>batik-osgi-bundle</module>
+    <module>renderfarm-service</module>
+    <module>examples/Cli</module>
+    <module>examples/exampleBundle</module>
+  </modules>
+
+  <properties>
+      <sling.url>http://localhost:8080</sling.url>
+      <build.compiler.source>1.8</build.compiler.source>
+      <build.compiler.target>1.8</build.compiler.target>
+  </properties>
+
+  <build>
+    <plugins>
+
+      <!-- do not deploy this hierarchy pom into maven repository -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+      <!-- do not generate site for this project -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <skipDeploy>true</skipDeploy>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

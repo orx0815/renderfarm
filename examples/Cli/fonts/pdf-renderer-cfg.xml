@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<renderer mime="application/pdf">
+ <fonts>
+      
+     <font kerning="yes" embed-url="./fonts/Secret-Typewriter/veteran_typewriter.ttf" embedding-mode="subset">
+           <font-triplet name="Veteran Typewriter" style="normal" weight="normal"/>
+       </font>
+      
+   </fonts>
+</renderer>

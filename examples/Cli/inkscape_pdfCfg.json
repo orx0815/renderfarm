@@ -1,0 +1,27 @@
+{
+   "outputFileName": "./showcase.pdf",
+  "pages": [
+     {
+      "template": "../../showcase/inkscape.svg",
+      
+      "dynamicTexts": [
+        {
+          "elementId": "halloWelt",
+          "textValue": "HELLO WÖRLD"
+        }
+      ],
+
+      "dynamicJpegs": [
+        {
+          "elementId": "background_image",
+          "source": "../../showcase/bitmaps/Light Toned Deposit in the Aureum Chaos Region on Mars.jpg"
+        }
+      ]
+    },
+   {
+      "template": "../../showcase/Inkscape_092_about_screen_MG_mKZJlss.svg"
+    }
+    
+    
+  ]
+}

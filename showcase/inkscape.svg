@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 1052.3622 744.09448"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="inkscape.svg">
+  <title
+     id="title4136">Renderfarm Showcase</title>
+  <defs
+     id="defs4">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4502">
+      <rect
+         style="opacity:1;fill:#fd3333;fill-opacity:0.48230088;fill-rule:nonzero;stroke:none;stroke-width:0.7265625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4504"
+         width="1052.3622"
+         height="744.09448"
+         x="0"
+         y="308.26773" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.90286225"
+     inkscape:cx="370.19601"
+     inkscape:cy="392.2636"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1139"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:snap-page="true" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Renderfarm Showcase</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-308.26772)">
+    <image
+       sodipodi:absref="/home/orx/Develop/gitlab/stuff/renderfarm/showcase/bitmaps/Light Toned Deposit in the Aureum Chaos Region on Mars.jpg"
+       xlink:href="bitmaps/Light Toned Deposit in the Aureum Chaos Region on Mars.jpg"
+       width="3978.9246"
+       height="2813.3813"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="background_image"
+       x="0"
+       y="308.26773"
+       clip-path="url(#clipPath4502)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:0%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="362.29358"
+       y="455.55954"
+       id="text4136"><tspan
+         sodipodi:role="line"
+         id="halloWelt"
+         x="362.29358"
+         y="455.55954"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;line-height:1;font-family:'Veteran Typewriter';-inkscape-font-specification:'Veteran Typewriter'">Hello World</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="219.87408"
+       y="998.68396"
+       id="text4137"><tspan
+         sodipodi:role="line"
+         id="tspan4139"
+         x="219.87408"
+         y="998.68396"
+         style="font-size:22.5px;line-height:1">${project.version}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="163.09908"
+       y="673.51813"
+       id="text4139"><tspan
+         sodipodi:role="line"
+         id="tspan4141"
+         x="163.09908"
+         y="673.51813"
+         style="font-size:80px;line-height:1">喜</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.wcm</groupId>
+    <artifactId>io.wcm.renderfarm.root</artifactId>
+    <version>1</version>
+  </parent>
+    
+  <!-- http://wiki.apache.org/xmlgraphics/OSGiSupport
+  
+  All three subprojects (XGC, Batik and FOP) use the "Service Provider" mechanism from the JAR specification for detecting plug-ins (loading files in the META-INF/services directory of various JARs). 
+   [...] provider consumer may not see all available plug-ins anymore if they are not compiled together into an ugly monster-JAR.
+   
+   That's whats happening here, (among exposing packages to osgi)
+    -->
+
+  <name>Renderfarm Apache FOP osgi-bundle</name>  
+  <artifactId>io.wcm.renderfarm.batikbundle</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>bundle</packaging>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>fop</artifactId>
+      <version>2.2</version>
+      <exclusions>
+          <!--  Both FOP and Batik use the org.w3c. * packages, but we give them the one  from JDK -->
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
+        <!-- org/w3c/dom/svg comes from xml-apis-ext, so we need that
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis-ext</artifactId>
+        </exclusion-->
+      </exclusions>
+    </dependency>
+    
+  </dependencies>
+  
+  <build>
+    <plugins>
+
+      
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <!-- embed all compile and runtime scope dependencies -->
+        <configuration>
+          <instructions>
+            <Embed-Dependency>*;scope=compile|runtime;inline=true</Embed-Dependency>
+            <Embed-Transitive>true</Embed-Transitive>
+            <!--
+              from org.w3c.dom till javax.imageio.stream it's needed to avoid two chain for org.w3c.dom. We must block the impl from framework and use batiks own
+            -->
+            <Export-Package>
+              org.w3c.dom;version="1.0",
+              org.w3c.dom.events;version="1.0",
+              org.w3c.dom.ls;version="1.0",
+              org.w3c.dom.html;version="1.0",
+              org.w3c.dom.stylesheets;version="1.0",
+              org.w3c.dom.css;version="1.0",
+              org.w3c.dom.traversal;version="1.0",
+              org.w3c.dom.ranges;version="1.0",
+              javax.xml.validation;version="1.0",
+              javax.swing.event;version="1.0",
+              javax.swing.text;version="1.0",
+              javax.xml.parsers;version="1.0",
+              javax.xml.transform.dom;version="1.0",
+              javax.swing.plaf;version="1.0",
+              javax.swing.border;version="1.0",
+              javax.swing;version="1.0",
+              javax.imageio;version="0.0",
+              javax.imageio.event;version="0.0",
+              javax.imageio.plugins.jpeg;version="0.0",
+              javax.imageio.spi;version="0.0",
+              javax.imageio.metadata;version="0.0",
+              javax.imageio.stream;version="0.0",
+              org.apache.xmlgraphics.image.loader.spi,
+              org.apache.fop.svg;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
+              org.apache.fop.apps;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
+              org.apache.batik.transcoder;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
+              org.apache.batik.util;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
+              org.apache.batik.anim.dom;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
+              org.apache.xmlgraphics.java2d.color.profile;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
+              org.apache.avalon.framework.configuration;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
+              org.apache.avalon.framework.container;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
+              org.apache.fontbox;version="2.2",
+              org.apache.fontbox.afm;version="2.2",
+              org.apache.fontbox.cff;version="2.2",
+              org.apache.fontbox.cmap;version="2.2",
+              org.apache.fontbox.encoding;version="2.2",
+              org.apache.fontbox.pfb;version="2.2",
+              org.apache.fontbox.ttf;version="2.2",
+              org.apache.fontbox.type1;version="2.2",
+              org.apache.fontbox.util;version="2.2",
+              org.apache.fontbox.util.autodetect;version="2.2"
+            </Export-Package>
+            <DynamicImport-Package>
+              javax.media.jai,
+              org.apache.bcel.*,
+              org.apache.fontbox.*,
+              org.apache.log.*,
+              org.apache.tools.ant.*,
+              org.mozilla.javascript
+            </DynamicImport-Package>
+            <Import-Package>
+              javax.crypto,
+              javax.crypto.spec,
+              javax.imageio,
+              javax.imageio.event,
+              javax.imageio.metadata,
+              javax.imageio.plugins.jpeg,
+              javax.imageio.spi,
+              javax.imageio.stream,
+              javax.naming,
+              javax.servlet,
+              javax.servlet.http,
+              javax.sql,javax.swing,
+              javax.swing.border,
+              javax.swing.event,
+              javax.swing.plaf,
+              javax.swing.text,
+              javax.xml.datatype,
+              javax.xml.namespace,
+              javax.xml.parsers,
+              javax.xml.transform,
+              javax.xml.transform.dom,
+              javax.xml.transform.sax,
+              javax.xml.transform.stream,
+              javax.xml.validation,
+              javax.xml.xpath,
+              org.apache.commons.io,
+              org.apache.commons.io.filefilter,
+              org.apache.commons.io.output,
+              org.apache.commons.logging,
+              org.apache.log4j,
+              org.w3c.dom,
+              org.w3c.dom.css,
+              org.w3c.dom.ls,
+              org.w3c.dom.ranges,
+              org.w3c.dom.stylesheets,
+              org.w3c.dom.traversal,
+              org.w3c.dom.views,
+              org.xml.sax,
+              org.xml.sax.ext,
+              org.xml.sax.helpers
+            </Import-Package>
+                    
+            <Content-Type>application/x-font</Content-Type>
+          </instructions>
+        </configuration>
+      </plugin>
+      
+    </plugins>
+  </build>
+
+</project>
