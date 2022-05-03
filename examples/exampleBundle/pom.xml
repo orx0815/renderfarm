@@ -3,21 +3,21 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.wcm</groupId>
-    <artifactId>io.wcm.renderfarm.root</artifactId>
+    <groupId>org.motorbrot</groupId>
+    <artifactId>org.motorbrot.renderfarm.root</artifactId>
     <version>1</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
 
-  <artifactId>io.wcm.renderfarm.exampleBundle</artifactId>
+  <artifactId>org.motorbrot.renderfarm.exampleBundle</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <dependencies>
 
     <dependency>
-      <groupId>io.wcm</groupId>
-      <artifactId>io.wcm.renderfarm.pdfrenderservice</artifactId>
+      <groupId>org.motorbrot</groupId>
+      <artifactId>org.motorbrot.renderfarm.pdfrenderservice</artifactId>
       <version>0.1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
@@ -61,11 +61,11 @@
         <configuration>
           <instructions>
             <Sling-Initial-Content>
-              SLING-INF/app-root;overwrite:=true;ignoreImportProviders:=xml;path:=/apps/wcm-io-samples/sample-app,
-              SLING-INF/app-root-config;overwrite:=true;ignoreImportProviders:=xml;path:=/apps/wcm-io-samples/config
+              SLING-INF/app-root;overwrite:=true;ignoreImportProviders:=xml;path:=/apps/motorbrot-org-samples/sample-app,
+              SLING-INF/app-root-config;overwrite:=true;ignoreImportProviders:=xml;path:=/apps/motorbrot-org-samples/config
             </Sling-Initial-Content>
             <Sling-Model-Packages>
-              io.wcm.renderfarm.example.sling
+              org.motorbrot.renderfarm.example.sling
             </Sling-Model-Packages>
 
 

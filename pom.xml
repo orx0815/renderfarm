@@ -9,7 +9,8 @@
     <relativePath/>
   </parent>
 
-  <artifactId>io.wcm.renderfarm.root</artifactId>
+  <groupId>org.motorbrot</groupId>
+  <artifactId>org.motorbrot.renderfarm.root</artifactId>
   <packaging>pom</packaging>
   <version>1</version>
 

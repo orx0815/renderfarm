@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.wcm</groupId>
-    <artifactId>io.wcm.renderfarm.root</artifactId>
+    <groupId>org.motorbrot</groupId>
+    <artifactId>org.motorbrot.renderfarm.root</artifactId>
     <version>1</version>
   </parent>
 
-  <artifactId>io.wcm.renderfarm.pdfrenderservice</artifactId>
+  <artifactId>org.motorbrot.renderfarm.pdfrenderservice</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
@@ -16,8 +16,8 @@
 
     <!-- it's easier to debug the separate jars compared to the all in one jar
     <dependency>
-      <groupId>io.wcm</groupId>
-      <artifactId>io.wcm.renderfarm.batikbundle</artifactId>
+      <groupId>org.motorbrot</groupId>
+      <artifactId>org.motorbrot.renderfarm.batikbundle</artifactId>
       <version>0.1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency-->
@@ -83,17 +83,17 @@
             <Embed-Dependency>*;scope=compile|runtime;inline=true</Embed-Dependency>
             <Embed-Transitive>true</Embed-Transitive>
             <Export-Package>
-              io.wcm.renderfarm.api,
-              io.wcm.renderfarm.tools
+              org.motorbrot.renderfarm.api,
+              org.motorbrot.renderfarm.tools
             </Export-Package>
             <Import-Package>
               !org.apache.log,
               !org.bouncycastle.*,
               !org.apache.avalon.framework.logger,
               !sun.io,
-              org.w3c.dom;bundle-symbolic-name="io.wcm.renderfarm.batikbundle";version="1.0",
-              org.w3c.dom.events;bundle-symbolic-name="io.wcm.renderfarm.batikbundle";version="1.0",
-              org.w3c.dom.html;bundle-symbolic-name="io.wcm.renderfarm.batikbundle";version="1.0",
+              org.w3c.dom;bundle-symbolic-name="org.motorbrot.renderfarm.batikbundle";version="1.0",
+              org.w3c.dom.events;bundle-symbolic-name="org.motorbrot.renderfarm.batikbundle";version="1.0",
+              org.w3c.dom.html;bundle-symbolic-name="org.motorbrot.renderfarm.batikbundle";version="1.0",
               javax.imageio,
               *
             </Import-Package>
