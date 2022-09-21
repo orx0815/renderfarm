@@ -29,15 +29,28 @@
       <version>2.2</version>
       <exclusions>
           <!--  Both FOP and Batik use the org.w3c. * packages, but we give them the one  from JDK -->
-        <exclusion>
+        <!--exclusion>
           <groupId>xml-apis</groupId>
           <artifactId>xml-apis</artifactId>
-        </exclusion>
+        </exclusion-->
         <!-- org/w3c/dom/svg comes from xml-apis-ext, so we need that
         <exclusion>
           <groupId>xml-apis</groupId>
           <artifactId>xml-apis-ext</artifactId>
         </exclusion-->
+      </exclusions>
+    </dependency>
+    
+    <!-- in java11 we need to provide sax-parser -->
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xercesImpl</artifactId>
+      <version>2.12.2</version>
+      <exclusions>
+        <exclusion>
+          <groupId>xml-apis</groupId>
+          <artifactId>xml-apis</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     
@@ -50,6 +63,7 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+        <version>5.1.1</version>
         <extensions>true</extensions>
         <!-- embed all compile and runtime scope dependencies -->
         <configuration>
@@ -83,6 +97,7 @@
               javax.imageio.metadata;version="0.0",
               javax.imageio.stream;version="0.0",
               org.apache.xmlgraphics.image.loader.spi,
+              org.apache.xerces.parsers;version="1.0",
               org.apache.fop.svg;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
               org.apache.fop.apps;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",
               org.apache.batik.transcoder;uses:="org.xml.sax,org.apache.commons.logging,javax.xml.transform,javax.xml.transform.stream,org.apache.commons.io,org.xml.sax.helpers";version="1.0",

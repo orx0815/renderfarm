@@ -14,8 +14,8 @@
   <packaging>jar</packaging>
   
   <properties>
-    <build.compiler.source>1.8</build.compiler.source>
-    <build.compiler.target>1.8</build.compiler.target>
+    <build.compiler.source>11</build.compiler.source>
+    <build.compiler.target>11</build.compiler.target>
   </properties>
   
   <build>
@@ -85,10 +85,11 @@
         <version>2.6.2</version>
     </dependency>
     
-    <dependency>
+    <!--dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-    </dependency>
+      <version>1.7.25</version>
+    </dependency-->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>

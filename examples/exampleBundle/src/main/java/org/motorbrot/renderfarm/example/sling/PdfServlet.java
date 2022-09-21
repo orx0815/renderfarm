@@ -7,26 +7,30 @@ import org.motorbrot.renderfarm.api.PdfRenderService;
 import org.motorbrot.renderfarm.api.RenderModel;
 import java.io.IOException;
 import java.io.InputStream;
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import org.apache.commons.io.IOUtils;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.sling.SlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.apache.sling.servlets.annotations.SlingServletPaths;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * SlingServlet serving renderfarm pdf
  */
-@SlingServlet(
-        label = "Samples - Sling All Methods Servlet",
-        description = "Sample implementation of a Sling All Methods Servlet.",
-        paths = { "/apps/motorbrot-org-samples/bin/exampleBundle" },
-        extensions = {"pdf"}
-)
+//@SlingServlet(
+//        label = "Samples - Sling All Methods Servlet",
+//        description = "Sample implementation of a Sling All Methods Servlet.",
+//        paths = { "/apps/motorbrot-org-samples/bin/exampleBundle" },
+//        extensions = {"pdf"}
+//)
+@Component(service = Servlet.class)
+@SlingServletPaths("/apps/motorbrot-org-samples/bin/exampleBundle")
 public class PdfServlet extends SlingSafeMethodsServlet {
   
   @Reference

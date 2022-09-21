@@ -14,14 +14,15 @@
 
   <dependencies>
 
-    <!-- it's easier to debug the separate jars compared to the all in one jar
+    <!-- it's easier to debug the separate jars compared to the all in one jar -->
     <dependency>
       <groupId>org.motorbrot</groupId>
       <artifactId>org.motorbrot.renderfarm.batikbundle</artifactId>
       <version>0.1.0-SNAPSHOT</version>
       <scope>provided</scope>
-    </dependency-->
+    </dependency>
     
+    <!--
     <dependency>
       <groupId>org.apache.xmlgraphics</groupId>
       <artifactId>fop</artifactId>
@@ -31,35 +32,39 @@
           <groupId>xml-apis</groupId>
           <artifactId>xml-apis</artifactId>
         </exclusion>
-        <!-- org/w3c/dom/svg comes from xml-apis-ext, so we need that
-        <exclusion>
-          <groupId>xml-apis</groupId>
-          <artifactId>xml-apis-ext</artifactId>
-        </exclusion-->
+        
       </exclusions>
+      <scope>provided</scope>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>org.osgi</groupId>
+      <artifactId>org.osgi.service.component.annotations</artifactId>
+      <version>1.4.0</version>
       <scope>provided</scope>
     </dependency>
     
     <dependency>
       <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.service.component.annotations</artifactId>
-      <version>1.3.0</version>
-      <scope>provided</scope>
+      <artifactId>org.osgi.service.metatype.annotations</artifactId>
+      <version>1.4.0</version>
     </dependency>
-    <dependency>
+    <!--dependency>
       <groupId>org.osgi</groupId>
       <artifactId>osgi.annotation</artifactId>
       <version>6.0.1</version>
       <scope>provided</scope>
-    </dependency>
+    </dependency-->
     <dependency>
       <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.core</artifactId>
+      <artifactId>org.osgi.framework</artifactId>
+      <version>1.9.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
       <scope>provided</scope>
     </dependency>
     
@@ -69,6 +74,14 @@
       <version>2.0.5</version>
     </dependency>
     
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.4</version>
+      <scope>test</scope>
+    </dependency>
+
+    
   </dependencies>
   
   <build>
@@ -77,6 +90,8 @@
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
+        <version>5.1.1</version>
+        <extensions>true</extensions>
         <!-- embed all compile and runtime scope dependencies -->
         <configuration>
           <instructions>
@@ -94,6 +109,7 @@
               org.w3c.dom;bundle-symbolic-name="org.motorbrot.renderfarm.batikbundle";version="1.0",
               org.w3c.dom.events;bundle-symbolic-name="org.motorbrot.renderfarm.batikbundle";version="1.0",
               org.w3c.dom.html;bundle-symbolic-name="org.motorbrot.renderfarm.batikbundle";version="1.0",
+              org.apache.xerces.parsers;bundle-symbolic-name="org.motorbrot.renderfarm.batikbundle";version="1.0",
               javax.imageio,
               *
             </Import-Package>

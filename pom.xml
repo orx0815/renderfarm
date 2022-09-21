@@ -3,9 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.wcm</groupId>
-    <artifactId>io.wcm.parent_toplevel</artifactId>
-    <version>1.2.0</version>
+    <groupId>io.wcm.maven</groupId>
+    <artifactId>io.wcm.maven.global-parent</artifactId>
+    <version>43</version>
     <relativePath/>
   </parent>
 
@@ -23,8 +23,8 @@
 
   <properties>
       <sling.url>http://localhost:8080</sling.url>
-      <build.compiler.source>1.8</build.compiler.source>
-      <build.compiler.target>1.8</build.compiler.target>
+      <build.compiler.source>11</build.compiler.source>
+      <build.compiler.target>11</build.compiler.target>
   </properties>
 
   <build>

@@ -37,10 +37,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.charset.StandardCharsets;
+import org.apache.batik.util.XMLResourceDescriptor;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.motorbrot.renderfarm.api.PdfRenderService;
@@ -67,7 +67,6 @@ public class RenderFarm implements PdfRenderService {
   /**
    * new RenderFarm
    */
-  @SuppressFBWarnings("DLS_DEAD_LOCAL_STORE")
   public RenderFarm() {
 
     @SuppressWarnings("unused")
@@ -90,7 +89,7 @@ public class RenderFarm implements PdfRenderService {
      * org.apache.batik.gvt.AbstractGraphicsNode.paint(Unknown Source) at org.apache.batik.gvt.CompositeGraphicsNode.primitivePaint(Unknown Source) at
      * org.apache.batik.gvt.AbstractGraphicsNode.paint(Unknown Source) at org.apache.fop.svg.PDFTranscoder.transcode(PDFTranscoder.java:185) at
      * org.apache.batik.transcoder.XMLAbstractTranscoder.transcode(Unknown Source) at org.apache.batik.transcoder.SVGAbstractTranscoder.transcode(Unknown
-     * Source) at io.wcm.renderfarm.impl.RenderFarm.transcodeDomToPdfPage(RenderFarm.java:145) at
+     * Source) at org.motorbrot.renderfarm.impl.RenderFarm.transcodeDomToPdfPage(RenderFarm.java:145) at
      * java.util.stream.ReferencePipeline$Head.forEachOrdered(ReferencePipeline.java:590) at
      *
      * maybe try to raise fop bug because this seems quite reproduceable
@@ -114,7 +113,7 @@ public class RenderFarm implements PdfRenderService {
     List<? extends RenderModel.PageModel> svgPages = templatesAndData.getPages();
     List<InputStream> singlePagePdfInputStreams = new ArrayList<>(svgPages.size());
 
-    String xmlParser = null; // use the one from jdk
+    String xmlParser = org.apache.xerces.parsers.SAXParser.class.getName();  // use the one from jdk
     SAXSVGDocumentFactory mySaxFactory = new SAXSVGDocumentFactory(xmlParser);
 
     final Transcoder fopTranscoder = buildFopTranscoder(); // not Threadsafe this one
@@ -159,7 +158,7 @@ public class RenderFarm implements PdfRenderService {
     PDFMergerUtility pdfMerger = new PDFMergerUtility();
 
     PDDocumentInformation pdDocumentInformation = new PDDocumentInformation();
-    pdDocumentInformation.setAuthor("wcm.io.renderfarm");
+    pdDocumentInformation.setAuthor("org.motorbrot.renderfarm");
     pdDocumentInformation.setCreationDate(Calendar.getInstance());
     pdDocumentInformation.setModificationDate(Calendar.getInstance());
 //    pdDocumentInformation.setTitle("Your Pdf");   toDo: make configurable
@@ -301,7 +300,7 @@ public class RenderFarm implements PdfRenderService {
       LOG.warn("Error in font-configuration", ex);
     }
     
-    transcoder.addTranscodingHint(AbstractFOPTranscoder.KEY_AUTO_FONTS, Boolean.FALSE);
+//    transcoder.addTranscodingHint(AbstractFOPTranscoder.KEY_AUTO_FONTS, Boolean.FALSE);
     return transcoder;
   }
 
